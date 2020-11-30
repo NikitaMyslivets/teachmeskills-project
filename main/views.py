@@ -7,6 +7,16 @@ def index(request):
     allMovies = Movie.objects.all()
 
     context = {
-        'movie': allMovies
+        'movies': allMovies
     }
-    return render(request, 'main/index.html', context)
+    return render(request, 'main/home.html', context)
+
+
+def detail(request, id):
+    movie = Movie.objects.get(id=id)
+
+    context = {
+        'movie': movie
+    }
+
+    return render(request, 'main/detail.html', context)
