@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Material Design for Bootstrap</title>
+  <title>{% block title %} KinoMonster {% endblock %} </title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <!-- Google Fonts Roboto -->
@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}">
   <!-- Your custom styles (optional) -->
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
 <!--  <style>
     body {
       background-color: #2e2e2e;
@@ -33,12 +34,13 @@
   </style>-->
 </head>
 <body>
+    {% include 'include/header.html' %}
 
-<!-- Start your project here-->
     {% block content %}
 
     {% endblock content %}
-<!-- End your project here-->
+
+    {% include 'include/footer.html' %}
 
   <!-- jQuery -->
   <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>

@@ -1,7 +1,55 @@
 {% extends 'base.html' %}
 
+{% block title %} {{ movie.title }} {% endblock %}
+
 {% block content %}
-    <h1>{{ movie.title }}</h1>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="{{ movie.image }}" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-md-8">
+                        <h2 class="text-center">
+                            {{ movie.title }}
+                        </h2>
+
+                        <p>{{ movie.description}} </p>
+
+                        <h5>Режиссер: {{ movie.director }}</h5>
+
+                        <h5>Актеры: {{ movie.actor }}</h5>
+
+                        {% for genre in movie.genre.all %}
+                            <h5>Жанр: {{ genre.name }}</h5>
+                        {% endfor %}
+
+                        <h5>Год выпуска: {{ movie.release_date }}</h5>
+
+                        <h5>Время: {{ movie.time }} мин</h5>
+
+                        <h5>Рейтинг: {{ movie.average_rating }}/10</h5>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <div class="card">
+            <div class="card-body">
+                <div class="text-center">
+                    <iframe src="{{ movie.video }}" height="350" width="724" allowfullscreen frameborder=""></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+
+
+<h1></h1>
     <p>{{ movie.description }}</p>
     <img src="{{ movie.image }}" alt="">
     <iframe src="{{ movie.video }}" frameborder="0"></iframe>
@@ -10,4 +58,3 @@
             {{ genr.name }}
         {% endfor %}
     </span>
-{% endblock content %}
