@@ -1,13 +1,15 @@
 from django.shortcuts import render, redirect
 from .models import *
 from .forms import *
+from django.db.models import Avg
 
 
 def index(request):
     allMovies = Movie.objects.all()
 
     context = {
-        'movies': allMovies
+        'movies': allMovies,
+
     }
     return render(request, 'main/home.html', context)
 
@@ -15,9 +17,16 @@ def index(request):
 def detail(request, id):
     movie = Movie.objects.get(id=id)
     reviews = Review.objects.filter(movie=id).order_by('-comment')
+
+    average = reviews.aggregate(Avg('rating'))['rating__avg']
+    if average == None:
+        average = 0
+    average = round(average, 2)
+
     context = {
         'movie': movie,
         'reviews': reviews,
+        'average': average,
     }
 
     return render(request, 'main/detail.html', context)
