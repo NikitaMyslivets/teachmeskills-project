@@ -15,7 +15,7 @@ class GenreAdmin(admin.ModelAdmin):
 
 @admin.register(Movie)
 class MovieAdmin(admin.ModelAdmin):
-    list_display = ('title', 'release_date', )
+    list_display = ('name', 'release_date', )
 
 
 @admin.register(Review)

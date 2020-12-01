@@ -28,7 +28,7 @@ class Genre(models.Model):
 
 
 class Movie(models.Model):
-    title = models.CharField(max_length=200)
+    name = models.CharField(max_length=200)
     description = models.TextField(max_length=4000)
     actor = models.CharField(max_length=300)
     director = models.CharField(max_length=300)
@@ -41,10 +41,10 @@ class Movie(models.Model):
     category = models.ForeignKey(Category, verbose_name='Категория', on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
-        return self.title
+        return self.name
 
     def __unicode__(self):
-        return self.title
+        return self.name
 
     class Meta:
         verbose_name = 'Фильм'

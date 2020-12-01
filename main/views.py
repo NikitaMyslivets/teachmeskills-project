@@ -5,11 +5,15 @@ from django.db.models import Avg
 
 
 def index(request):
-    allMovies = Movie.objects.all()
+    query = request.GET.get('title')
+    allMovies = None
+    if query:
+        allMovies = Movie.objects.filter(name__icontains=query)
+    else:
+        allMovies = Movie.objects.all()
 
     context = {
         'movies': allMovies,
-
     }
     return render(request, 'main/home.html', context)
 
