@@ -4,22 +4,25 @@ from django.contrib.auth import authenticate, logout, login
 
 
 def register(request):
-    if request.method == 'POST':
-        form = RegistrationForm(request.POST or None)
-
-        if form.is_valid():
-            user = form.save()
-
-            row_password = form.cleaned_data.get('password')
-
-            user = authenticate(username=user.username, password=row_password)
-
-            login(request, user)
-
-            return redirect('main:home')
+    if request.user.is_authenticated:
+        return redirect('main:home')
     else:
-        form = RegistrationForm()
-    return render(request, 'accounts/register.html', {'form': form})
+        if request.method == 'POST':
+            form = RegistrationForm(request.POST or None)
+
+            if form.is_valid():
+                user = form.save()
+
+                row_password = form.cleaned_data.get('password')
+
+                user = authenticate(username=user.username, password=row_password)
+
+                login(request, user)
+
+                return redirect('main:home')
+        else:
+            form = RegistrationForm()
+        return render(request, 'accounts/register.html', {'form': form})
 
 
 '''login'''
@@ -46,5 +49,8 @@ def login_user(request):
 
 
 def logout_user(request):
-    logout(request)
-    return redirect('accounts:login')
+    if request.user.is_authenticated:
+        logout(request)
+        return redirect('accounts:login')
+    else:
+        return redirect('accounts:login')

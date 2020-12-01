@@ -7,3 +7,9 @@ class MovieForm(forms.ModelForm):
         model = Movie
         fields = ('title', 'description', 'actor', 'director', 'genre', 'release_date', 'average_rating',
                   'time', 'image', 'video', 'category')
+
+
+class ReviewForm(forms.ModelForm):
+    class Meta:
+        model = Review
+        fields = ('comment', 'rating')

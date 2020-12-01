@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 from embed_video.fields import EmbedVideoField
 
@@ -48,5 +49,18 @@ class Movie(models.Model):
     class Meta:
         verbose_name = 'Фильм'
         verbose_name_plural = 'Фильмы'
+
+class Review(models.Model):
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    comment = models.TextField(max_length=2000)
+    rating = models.FloatField(default=0)
+
+    def __str__(self):
+        return self.user.username
+
+    class Meta:
+        verbose_name = 'Отзыв'
+        verbose_name_plural = 'Отзывы'
 
 
