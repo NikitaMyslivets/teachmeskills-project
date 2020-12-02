@@ -54,3 +54,5 @@ def add_review(request, id):
         return render(request, 'main/detail.html')
     else:
         return redirect('accounts:login')
+
+

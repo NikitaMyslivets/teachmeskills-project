@@ -24,18 +24,19 @@
       </li>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Контакты</a>
+        <a class="nav-link" href="{% url 'send_email:contact' %}">Контакты</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">О нас</a>
       </li>
     </ul>
+    <form action="{% url 'main:home' %}" class="form-inline my-2 my-lg-0 ml-auto" method="GET">
+    <input class="form-control" type="search" placeholder="Search" aria-label="Search" name="title">
+      <!--<button class="btn btn-outline-white btn-md my-2 my-sm-0 ml-3" type="submit">Search</button>-->
+  </form>
   </div>
 
-  <form action="{% url 'main:home' %}" class="form-inline my-2 my-lg-0 ml-auto" method="GET">
-    <input class="form-control" type="search" placeholder="Search" aria-label="Search" name="title">
-    <button class="btn btn-outline-white btn-md my-2 my-sm-0 ml-3" type="submit">Search</button>
-  </form>
+
 
 
       <ul class="navbar-nav ml-auto nav-flex-icons">
@@ -43,6 +44,7 @@
           <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-user"></i>
+            {{ user.username }}
           </a>
           <div class="dropdown-menu dropdown-menu-right dropdown-default"
             aria-labelledby="navbarDropdownMenuLink-333">

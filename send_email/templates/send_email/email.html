@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="card">
+            <form class="text-center border border-light p-5" action="{% url 'send_email:contact' %}" method="post">
+    {% csrf_token %}
+
+    <p class="h4 mb-4">Subscribe</p>
+    <p>Join our mailing list. We write rarely, but only the best content.</p>
+    <p>
+        <a href="" target="_blank">See the last newsletter</a>
+    </p>
+
+    {{ form.as_p }}
+    <button class="btn btn-success" type="submit">Отправить</button>
+</form>
+        </div>
+    </div>
+
+{% endblock content %}
