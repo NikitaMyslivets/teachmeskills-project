@@ -4,11 +4,11 @@
 
 {% block content %}
 
-    <div class="container">
+    <div class="container" style="max-width: 500px;">
         <div class="card">
             <div class="card-body">
                 <h3 class="text-center">Login to your account</h3>
-                <form action="" method="POST">
+                <form action="" method="POST" class="mt-4 p-4" style="max-width: 500px; margin: auto;">
                     {% csrf_token %}
                     <label for="username">Username</label>
                     <input type="text" placeholder="Enter your username" class="form-control" name="username">
@@ -20,7 +20,9 @@
                     {% if error %}
                         <i style="color: red;">{{ error }}</i>
                     {% endif %}
-                    <input type="submit" value="Login" class="btn btn-danger">
+                    <div class="text-center">
+                        <input type="submit" value="Login" class="btn btn-danger">
+                    </div>
                 </form>
             </div>
         </div>

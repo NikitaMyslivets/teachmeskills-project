@@ -51,7 +51,7 @@ def add_review(request, id):
                 return redirect('main:detail', id)
         else:
             form = ReviewForm()
-        return render(request, 'main/detail.html')
+        return render(request, 'main/detail.html', {'form': form})
     else:
         return redirect('accounts:login')
 

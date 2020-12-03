@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  {% load static %}
+  {% load static recaptcha3 %}
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -17,7 +17,8 @@
   <!-- Your custom styles (optional) -->
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
   <link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
-  <link rel="stylesheet" href="{% static 'css/video.css' %}">
+  <link rel="stylesheet" href="{% static 'css/darkmode.css' %}">
+  <link rel="stylesheet" href="{% static 'css/toggle.css' %}">
 <!--  <style>
     body {
       background-color: #2e2e2e;
@@ -32,6 +33,8 @@
       background-color: #ef5350 !important;
     }
   </style>-->
+    {% recaptcha_init %}
+    {% recaptcha_ready action_name='homepage' %}
 </head>
 <body>
     {% include 'include/header.html' %}
@@ -50,6 +53,8 @@
   <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
   <!-- MDB core JavaScript -->
   <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+
+  <script type="text/javascript" src="{% static 'js/darkmode.js' %}"></script>
 
 </body>
 </html>

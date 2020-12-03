@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
+    'snowpenguin.django.recaptcha3',
 ]
 
 MIDDLEWARE = [
@@ -132,3 +133,9 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'nikinos.myslivets@gmail.com'
 EMAIL_HOST_PASSWORD = 'qravlxlzejwgrehu'
 EMAIL_PORT = 587
+
+
+RECAPTCHA_PUBLIC_KEY = '6LdO3PcZAAAAAMc5y4ayjaOHoHfrfZqbZY9qpN8A'
+RECAPTCHA_PRIVATE_KEY = '6LdO3PcZAAAAANXQA5z-hfptERkZCklJsDxre1h2'
+RECAPTCHA_DEFAULT_ACTION = 'generic'
+RECAPTCHA_SCORE_THRESHOLD = 0.5
