@@ -7,6 +7,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>{% block title %} KinoMonster {% endblock %} </title>
   <!-- Font Awesome -->
+
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <!-- Google Fonts Roboto -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
@@ -19,20 +20,7 @@
   <link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
   <link rel="stylesheet" href="{% static 'css/darkmode.css' %}">
   <link rel="stylesheet" href="{% static 'css/toggle.css' %}">
-<!--  <style>
-    body {
-      background-color: #2e2e2e;
-    }
-    .text-poppy-red {
-      color: #ef5350 !important;
-    }
-    .btn-poppy-red {
-      background-color: #ef5350 !important;
-    }
-    .bg-poppy-red {
-      background-color: #ef5350 !important;
-    }
-  </style>-->
+
     {% recaptcha_init %}
     {% recaptcha_ready action_name='homepage' %}
 </head>

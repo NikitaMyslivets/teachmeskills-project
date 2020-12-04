@@ -22,6 +22,10 @@ class Genre(models.Model):
     def __str__(self):
         return self.name
 
+    @staticmethod
+    def get_all_genres():
+        return Genre.objects.all()
+
     class Meta:
         verbose_name = 'Жанр'
         verbose_name_plural = 'Жанры'
@@ -45,6 +49,21 @@ class Movie(models.Model):
 
     def __unicode__(self):
         return self.name
+
+    # @staticmethod
+    # def get_movies_by_id(ids):
+    #     return Movie.objects.filter(id__in=ids)
+
+    @staticmethod
+    def get_all_movies():
+        return Movie.objects.all()
+
+    @staticmethod
+    def get_all_movies_by_genreid(genre_id):
+        if genre_id:
+            return Movie.objects.filter(genre=genre_id)
+        else:
+            return Movie.get_all_genres()
 
     class Meta:
         verbose_name = 'Фильм'

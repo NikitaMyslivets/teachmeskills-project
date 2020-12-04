@@ -7,14 +7,23 @@ from django.db.models import Avg
 def index(request):
     query = request.GET.get('title')
     allMovies = None
+    allGenres = Genre.get_all_genres()
     if query:
         allMovies = Movie.objects.filter(name__icontains=query)
     else:
-        allMovies = Movie.objects.all()
+
+        genreID = request.GET.get('genre')
+        if genreID:
+            allMovies = Movie.get_all_movies_by_genreid(genreID)
+        else:
+            allMovies = Movie.get_all_movies()
+
 
     context = {
+        'genres': allGenres,
         'movies': allMovies,
     }
+
     return render(request, 'main/home.html', context)
 
 
@@ -54,5 +63,6 @@ def add_review(request, id):
         return render(request, 'main/detail.html', {'form': form})
     else:
         return redirect('accounts:login')
+
 
 
