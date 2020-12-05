@@ -1,5 +1,8 @@
+import datetime
+
 from django.contrib.auth.models import User
 from django.db import models
+from django.utils.timezone import utc
 from embed_video.fields import EmbedVideoField
 
 
@@ -44,15 +47,13 @@ class Movie(models.Model):
     video = models.URLField(default=None, null=True)
     category = models.ForeignKey(Category, verbose_name='Категория', on_delete=models.SET_NULL, null=True)
 
+
     def __str__(self):
         return self.name
 
     def __unicode__(self):
         return self.name
 
-    # @staticmethod
-    # def get_movies_by_id(ids):
-    #     return Movie.objects.filter(id__in=ids)
 
     @staticmethod
     def get_all_movies():
@@ -68,6 +69,7 @@ class Movie(models.Model):
     class Meta:
         verbose_name = 'Фильм'
         verbose_name_plural = 'Фильмы'
+        ordering = ['-id']
 
 class Review(models.Model):
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE)

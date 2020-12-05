@@ -11,6 +11,7 @@ django-embed-video = "*"
 pillow = "*"
 django-crispy-forms = "*"
 django-recaptcha3 = "*"
+django-filter = "*"
 
 [requires]
 python_version = "3.8"
