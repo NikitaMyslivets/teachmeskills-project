@@ -61,15 +61,15 @@
                 <h3 class="text-center">Оставить отзыв</h3>
                 <form action="{% url 'main:add_review' movie.id %}" method="POST">
                     {% csrf_token %}
-                    <label for="comment">Review</label>
-                    <textarea name="comment" id="comment" placeholder="" cols="30" rows="5" class="form-control"></textarea>
+                    <label for="comment">Отзыв</label>
+                    <textarea name="comment" id="comment" placeholder="Оставить комментарий..." cols="30" rows="5" class="form-control"></textarea>
 
-                    <label for="rating">Rating</label>
+                    <label for="rating">Рейтинг</label>
                     <input type="range" id="rangeInput"
                     name="rating" min="0" max="10" value="0" step="0.5"
                     oninput="amount.value=rangeInput.value">
 
-                    <output name="amount" id="amount" for="rangeInput">0</output>
+                    <output name="amount" id="amount" for="rangeInput">10</output>
 
                     <br>
                     <input type="submit" class="btn btn-danger" value="Add Review">

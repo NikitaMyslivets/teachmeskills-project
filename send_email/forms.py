@@ -14,7 +14,7 @@ class ContactForm(forms.ModelForm):
             }),
             'email': forms.EmailInput(attrs={
                 'class': 'form-control mb-4',
-                'placeholder': 'Email',
+                'placeholder': 'E-mail',
                 'id': 'defaultSubscriptionFormEmail',
             })
         }

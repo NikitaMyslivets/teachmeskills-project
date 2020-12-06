@@ -5,27 +5,38 @@
 {% block content %}
 
     <div class="container" style="max-width: 500px;">
+        <br><br><br>
         <div class="card">
+            <br>
+
             <div class="card-body">
-                <h3 class="text-center">Login to your account</h3>
+                <h3 class="text-center">Войти в аккаунт</h3>
                 <form action="" method="POST" class="mt-4 p-4" style="max-width: 500px; margin: auto;">
                     {% csrf_token %}
-                    <label for="username">Username</label>
-                    <input type="text" placeholder="Enter your username" class="form-control" name="username">
+                    <label for="username">Имя пользователя:</label>
+                    <input type="text" placeholder="Введите имя пользователя..." class="form-control" name="username">
                     
-                    <label for="password">Password</label>
-                    <input type="password" placeholder="Enter your password" class="form-control" name="password">
+                    <label for="password">Пароль:</label>
+                    <input type="password" placeholder="Введите пароль..." class="form-control" name="password">
                     <br>
 
                     {% if error %}
                         <i style="color: red;">{{ error }}</i>
                     {% endif %}
+                     <h6 class="text-center">У вас еще нет аккаунта?<a href="{% url 'accounts:register' %}"> Зарегистрироваться</a></h6>
+                    <br>
                     <div class="text-center">
-                        <input type="submit" value="Login" class="btn btn-danger">
+                        <input type="submit" value="Войти" class="btn btn-warning">
                     </div>
                 </form>
             </div>
         </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+<br>
     </div>
 
 {% endblock content %}

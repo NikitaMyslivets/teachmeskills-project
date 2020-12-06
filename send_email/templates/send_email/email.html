@@ -1,21 +1,26 @@
 {% extends 'base.html' %}
 
+{% load crispy_forms_tags %}
+
 {% block content %}
-    <div class="container">
+<br><br><br><br>
+    <div class="container col-lg-4">
         <div class="card">
-            <form class="text-center border border-light p-5" action="{% url 'send_email:contact' %}" method="post">
-    {% csrf_token %}
+            <div class="card-body">
+                <br>
+                <form class="text-center border-light " action="{% url 'send_email:contact' %}" method="post">
+                    {% csrf_token %}
 
-    <p class="h4 mb-4">Subscribe</p>
-    <p>Join our mailing list. We write rarely, but only the best content.</p>
-    <p>
-        <a href="" target="_blank">See the last newsletter</a>
-    </p>
+                    <p class="h4 mb-4">Подписаться на рассылку</p>
+                    <p>Узнавайте о навинках любимых фильмов раньше остальных!</p>
 
-    {{ form.as_p }}
-    <button class="btn btn-success" type="submit">Отправить</button>
-</form>
+                    {{ form | crispy }}
+                    <br>
+                    <button class="btn btn-success" type="submit">Подписаться</button>
+                 </form>
+                <br>
+            </div>
         </div>
     </div>
-
+<br><br><br><br><br><br><br><br>
 {% endblock content %}
