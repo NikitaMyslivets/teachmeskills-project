@@ -17,7 +17,7 @@ def register(request):
 
                 user = authenticate(username=user.username, password=row_password)
 
-                login(request, user)
+                login(request, user, backend='django.contrib.auth.backends.ModelBackend')
 
                 return redirect('main:home')
         else:
