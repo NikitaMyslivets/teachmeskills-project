@@ -20,6 +20,7 @@ django-js-asset = "*"
 gunicorn = "*"
 sqlparse = "*"
 static3 = "*"
+psycopg2 = "*"
 
 [requires]
 python_version = "3.8"
