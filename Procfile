@@ -1,0 +1,1 @@
+web: gunicorn --pythonpath teachmeskills teachmeskills.wsgi --log-file -

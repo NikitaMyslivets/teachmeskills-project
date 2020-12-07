@@ -13,6 +13,13 @@ django-crispy-forms = "*"
 django-recaptcha3 = "*"
 django-filter = "*"
 django-modeltranslation = "*"
+dj-database-url = "*"
+whitenoise = "*"
+dj-static = "*"
+django-js-asset = "*"
+gunicorn = "*"
+sqlparse = "*"
+static3 = "*"
 
 [requires]
 python_version = "3.8"

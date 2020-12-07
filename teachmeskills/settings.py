@@ -26,7 +26,7 @@ SECRET_KEY = ')oyk)4hsnx*3m79g31-6617!tzid&rny!h^5w)6x3ct=6n21u='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['teacmeskills.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -49,6 +49,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -153,3 +154,10 @@ RECAPTCHA_PUBLIC_KEY = '6LdO3PcZAAAAAMc5y4ayjaOHoHfrfZqbZY9qpN8A'
 RECAPTCHA_PRIVATE_KEY = '6LdO3PcZAAAAANXQA5z-hfptERkZCklJsDxre1h2'
 RECAPTCHA_DEFAULT_ACTION = 'generic'
 RECAPTCHA_SCORE_THRESHOLD = 0.5
+
+# POSTGRES DATABASE FOR PRODUCITON
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
