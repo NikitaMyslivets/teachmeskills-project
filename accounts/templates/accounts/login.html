@@ -2,41 +2,41 @@
 
 {% load crispy_forms_tags %}
 
+{% load static i18n %}
+
 {% block content %}
 
     <div class="container" style="max-width: 500px;">
-        <br><br><br>
+        <br><br>
         <div class="card">
             <br>
 
             <div class="card-body">
-                <h3 class="text-center">Войти в аккаунт</h3>
+                <h3 class="text-center">{% trans 'Войти в аккаунт' %}</h3>
                 <form action="" method="POST" class="mt-4 p-4" style="max-width: 500px; margin: auto;">
                     {% csrf_token %}
-                    <label for="username">Имя пользователя:</label>
-                    <input type="text" placeholder="Введите имя пользователя..." class="form-control" name="username">
+                    <label for="username">{% trans 'Имя пользователя' %}:</label>
+                    <input type="text" placeholder="{% trans 'Введите имя пользователя...' %}" class="form-control" name="username">
                     
-                    <label for="password">Пароль:</label>
-                    <input type="password" placeholder="Введите пароль..." class="form-control" name="password">
+                    <label for="password">{% trans 'Пароль:' %}</label>
+                    <input type="password" placeholder="{% trans 'Введите пароль...' %}" class="form-control" name="password">
                     <br>
 
                     {% if error %}
                         <i style="color: red;">{{ error }}</i>
                     {% endif %}
-                     <h6 class="text-center">У вас еще нет аккаунта?<a href="{% url 'accounts:register' %}"> Зарегистрироваться</a></h6>
+                     <h6 class="text-center">{% trans 'У вас еще нет аккаунта?' %}<a href="{% url 'accounts:register' %}">
+                         {% trans 'Зарегистрироваться' %}</a></h6>
                     <br>
                     <div class="text-center">
-                        <input type="submit" value="Войти" class="btn btn-warning">
+                        <input type="submit" value="{% trans 'Войти' %}" class="btn btn-warning">
                     </div>
                 </form>
             </div>
         </div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-<br>
+        <br><br>
+
+
     </div>
 
 {% endblock content %}

@@ -1,4 +1,6 @@
 {% load static %}
+{% load i18n %}
+{% load static i18n %}
 <!--Navbar -->
 <nav class="mb-1 navbar navbar-expand-lg navbar-dark default-color ">
   <a class="navbar-brand" href="{% url 'main:home' %}">KinoMonster</a>
@@ -9,28 +11,38 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'main:home' %}">Фильмы
+        <a class="nav-link" href="{% url 'main:home' %}">{% trans 'Фильмы' %}
           <span class="sr-only">(current)</span>
         </a>
-        <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">Фильмы
-        </a>
-        <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
       </li>
-      </li>
+
+
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'send_email:contact' %}">Контакты</a>
+        <a class="nav-link" href="{% url 'send_email:contact' %}">{% trans 'Подписка' %}</a>
       </li>
-      <li class="nav-item">
+      <!--<li class="nav-item">
         <a class="nav-link" href="#">О нас</a>
+      </li>-->
+      <li class="nav-item">
+            <form class="nav-link" action="{% url 'set_language' %}" method="post">{% csrf_token %}
+            <input name="next" type="hidden" value="{{ redirect_to }}">
+            <select class="selectpicker" data-width="fit" name="language">
+                {% get_current_language as LANGUAGE_CODE %}
+                {% get_available_languages as LANGUAGES %}
+                {% get_language_info_list for LANGUAGES as languages %}
+                {% for language in languages %}
+                    <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %}
+                            selected{% endif %}>
+                        {{ language.name_local }} ({{ language.code }})
+                    </option>
+                {% endfor %}f
+            </select>
+            <input type="submit" value="Go" style="height: 27px; text: center;">
+        </form>
       </li>
 
     </ul>
+
       <!--<div class="custom-control custom-switch">
         <input type="checkbox" class="custom-control-input" id="dark-mode-toggle">
         <label class="custom-control-label" for="dark-mode-toggle"></label>
@@ -43,10 +55,10 @@
                   <div class="ball"></div>
               </label>
        </div>
-    <form action="{% url 'main:home' %}" class="form-inline my-2 my-lg-0 ml-auto" method="GET">
-        <input class="form-control" type="search" placeholder="Поиск..." aria-label="Search" name="title">
+        <form action="{% url 'main:home' %}" class="form-inline my-2 my-lg-0 ml-auto" method="GET">
+            <input class="form-control" type="search" placeholder="{% trans 'Поиск' %}..." aria-label="Search" name="title">
       <!--<button class="btn btn-outline-white btn-md my-2 my-sm-0 ml-3" type="submit">Search</button>-->
-    </form>
+        </form>
   </div>
 
 
@@ -62,10 +74,10 @@
           <div class="dropdown-menu dropdown-menu-right dropdown-default"
             aria-labelledby="navbarDropdownMenuLink-333">
     {% if user.is_authenticated %}
-            <a class="dropdown-item" href="{% url 'accounts:logout' %}">Выйти</a>
+            <a class="dropdown-item" href="{% url 'accounts:logout' %}">{% trans 'Выйти' %}</a>
     {% else %}
-            <a class="dropdown-item" href="{% url 'accounts:login' %}">Войти</a>
-            <a class="dropdown-item" href="{% url 'accounts:register' %}">Регистрация</a>
+            <a class="dropdown-item" href="{% url 'accounts:login' %}">{% trans 'Войти' %}</a>
+            <a class="dropdown-item" href="{% url 'accounts:register' %}">{% trans 'Регистрация' %}</a>
           </div>
         </li>
       </ul>
@@ -74,4 +86,3 @@
   </div>
 
 </nav>
-<!--/.Navbar -->

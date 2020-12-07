@@ -3,3 +3,4 @@ __pycache__
 static
 migrations
 db.sqlite3
+locale

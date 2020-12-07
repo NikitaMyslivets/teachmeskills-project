@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 
 {% load crispy_forms_tags %}
+{% load static i18n %}
 
 {% block content %}
-<br><br><br><br>
+<br><br><br>
     <div class="container col-lg-4">
         <div class="card">
             <div class="card-body">
@@ -11,16 +12,16 @@
                 <form class="text-center border-light " action="{% url 'send_email:contact' %}" method="post">
                     {% csrf_token %}
 
-                    <p class="h4 mb-4">Подписаться на рассылку</p>
-                    <p>Узнавайте о навинках любимых фильмов раньше остальных!</p>
+                    <p class="h4 mb-4">{% trans 'Подписаться на рассылку' %}</p>
+                    <p>{% trans 'Узнавайте о навинках любимых фильмов раньше остальных!' %}</p>
 
                     {{ form | crispy }}
                     <br>
-                    <button class="btn btn-success" type="submit">Подписаться</button>
+                    <button class="btn btn-success" type="submit">{% trans 'Подписаться' %}</button>
                  </form>
                 <br>
             </div>
         </div>
     </div>
-<br><br><br><br><br><br><br><br>
+<br><br><br>
 {% endblock content %}

@@ -1,19 +1,19 @@
 {% extends 'base.html' %}
 
 {% load crispy_forms_tags %}
-
+{% load static i18n %}
 {% block content %}
 <br>
     <div class="container col-lg-4">
         <div class="card">
             <div class="card-body">
-                <h3 class="text-center">Регистрация</h3>
+                <h3 class="text-center">{% trans 'Регистрация' %}</h3>
                 <form action="" method="POST">
                     {% csrf_token %}
                     {{ form | crispy }}
-                    <h6 class="text-center">У меня уже есть аккаунт.<a href="{% url 'accounts:login' %}"> Войти</a></h6>
+                    <h6 class="text-center">{% trans 'У меня уже есть аккаунт.' %}<a href="{% url 'accounts:login' %}"> {% trans 'Войти' %}</a></h6>
                     <div class="text-center">
-                        <input type="submit" value="Регистрация" class="btn btn-warning">
+                        <input type="submit" value="{% trans 'Регистрация' %}" class="btn btn-warning">
                     </div>
 
                 </form>

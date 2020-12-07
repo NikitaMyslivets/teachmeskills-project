@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
-
-{% block title %} {{ movie.title }} {% endblock %}
+{% load static i18n %}
+{% block title %} {{ movie.title }} {% endblock title %}
 
 {% block content %}
     <div class="container">
@@ -17,19 +17,19 @@
 
                         <p>{{ movie.description}} </p>
 
-                        <h5>Режиссер: {{ movie.director }}</h5>
+                        <h5>{% trans 'Режиссер:' %} {{ movie.director }}</h5>
 
-                        <h5>Актеры: {{ movie.actor }}</h5>
+                        <h5>{% trans 'Актеры:' %} {{ movie.actor }}</h5>
 
                         {% for genre in movie.genre.all %}
-                            <h5>Жанр: {{ genre.name }}</h5>
+                            <h5>{% trans 'Жанр:' %} {{ genre.name }}</h5>
                         {% endfor %}
 
-                        <h5>Год выпуска: {{ movie.release_date }}</h5>
+                        <h5>{% trans 'Год выпуска:' %} {{ movie.release_date }}</h5>
 
-                        <h5>Время: {{ movie.time }} мин</h5>
+                        <h5>{% trans 'Время:' %} {{ movie.time }} мин</h5>
 
-                        <h5>Рейтинг: {{ average }}/10</h5>
+                        <h5>{% trans 'Рейтинг:' %} {{ average }}/10</h5>
 
                     </div>
                 </div>
@@ -46,6 +46,7 @@
                             <div class="embed-responsive embed-responsive-16by9 hoverable">
                               <iframe class="embed-responsive-item" src="{{ movie.video }}" style="height: 101%"
                                 allowfullscreen></iframe>
+                                
                             </div>
                           </div>
                     </div>
@@ -58,13 +59,14 @@
 
         <div class="card">
             <div class="card-body">
-                <h3 class="text-center">Оставить отзыв</h3>
+                <h3 class="text-center">{% trans 'Оставить отзыв' %}</h3>
                 <form action="{% url 'main:add_review' movie.id %}" method="POST">
                     {% csrf_token %}
-                    <label for="comment">Отзыв</label>
-                    <textarea name="comment" id="comment" placeholder="Оставить комментарий..." cols="30" rows="5" class="form-control"></textarea>
+                    <label for="comment">{% trans 'Отзыв' %}</label>
+                    <textarea name="comment" id="comment" placeholder="{% trans 'Оставить комментарий...' %}"
+                              cols="30" rows="5" class="form-control"></textarea>
 
-                    <label for="rating">Рейтинг</label>
+                    <label for="rating">{% trans 'Рейтинг' %}</label>
                     <input type="range" id="rangeInput"
                     name="rating" min="0" max="10" value="0" step="0.5"
                     oninput="amount.value=rangeInput.value">
@@ -80,7 +82,7 @@
         <br>
         <div class="card" style="background-color: #f5eeee;">
             <div class="card-body">
-                <h3 class="text-center">Отзывы</h3>
+                <h3 class="text-center">{% trans 'Отзывы' %}</h3>
                 {% for review in reviews %}
                 <br>
                     <div class="card">

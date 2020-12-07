@@ -1,10 +1,8 @@
-import datetime
-
 from django.contrib.auth.models import User
 from django.db import models
 from django.utils.timezone import utc
 from embed_video.fields import EmbedVideoField
-
+from django.utils import timezone
 
 class Category(models.Model):
     name = models.CharField('Категория', max_length=50)
@@ -46,6 +44,7 @@ class Movie(models.Model):
     image = models.URLField(default=None, null=True)
     video = models.URLField(default=None, null=True)
     category = models.ForeignKey(Category, verbose_name='Категория', on_delete=models.SET_NULL, null=True)
+    date = models.DateTimeField(default=timezone.now)
 
 
     def __str__(self):

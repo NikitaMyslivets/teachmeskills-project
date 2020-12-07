@@ -1,47 +1,43 @@
 <!-- Footer -->
-<footer class="page-footer font-big cyan default-color">
+{% load static i18n %}
+<footer class="page-footer font-small teal pt-4">
 
-  <!-- Footer Elements -->
-  <div class="container">
+  <!-- Footer Text -->
+  <div class="container-fluid text-center text-md-left">
 
-    <!-- Grid row-->
+    <!-- Grid row -->
     <div class="row">
 
       <!-- Grid column -->
-      <div class="col-md-12 py-6">
-        <div class="mb-5 flex-center">
+      <div class="col-md-6 mt-md-0 mt-3">
 
-          <!-- Facebook -->
-          <a class="fb-ic">
-            <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-          </a>
-          <!-- Twitter -->
-          <a class="tw-ic">
-            <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-          </a>
+        <!-- Content -->
+        <h5 class="text-uppercase font-weight-bold">{% trans 'Новости' %}</h5>
+        <p>{% trans 'KinoMonster — крупнейший русскоязычный интернет-сервис о кино. С 2020 года также доступен онлайн-кинотеатр с несколькими тысячами фильмов, сериалов, мультфильмов, в том числе премьерных и эксклюзивных.' %}</p>
 
-          <!--Linkedin -->
-          <a class="li-ic">
-            <i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-          </a>
-          <!--Instagram-->
-          <a class="ins-ic">
-            <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-          </a>
+      </div>
+      <!-- Grid column -->
 
-        </div>
+      <hr class="clearfix w-100 d-md-none pb-3">
+
+      <!-- Grid column -->
+      <div class="col-md-6 mb-md-0 mb-3">
+
+        <!-- Content -->
+        <h5 class="text-uppercase font-weight-bold">{% trans 'О нас' %}</h5>
+        <p>{% trans 'Сайт был создан 29 ноября 2020 года, его основател — Мысливец Никита. В 2021 году KinoMonster приобрел у компании Disney эксклюзивные права на показ премии в Беларуси в прямом эфире.' %}</p>
       </div>
       <!-- Grid column -->
 
     </div>
-    <!-- Grid row-->
+    <!-- Grid row -->
 
   </div>
-  <!-- Footer Elements -->
+  <!-- Footer Text -->
 
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3">© 2020 Copyright:
-    <a href="https://mdbootstrap.com/"> KinoMonster</a>
+    <a href="https://mdbootstrap.com/"> KinoMonster.by</a>
   </div>
   <!-- Copyright -->
 

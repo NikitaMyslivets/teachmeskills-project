@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static i18n %}
 
 {% block content %}
 
@@ -8,9 +9,9 @@
 
       <div class="col-lg-3">
 
-        <h1 class="my-4">Категории</h1>
+        <h1 class="my-4">{% trans 'Категории' %}</h1>
         <div class="list-group">
-          <a href="{% url 'main:home' %}" class="list-group-item">Все фильмы</a>
+          <a href="{% url 'main:home' %}" class="list-group-item">{% trans 'Все фильмы' %}</a>
           {% for genre in genres %}
             <a href="/?genre={{ genre.id }}" class="list-group-item">{{ genre.name }}</a>
           {% endfor %}
@@ -40,13 +41,13 @@
                       <div class="card-body">
                         <h3 class="text-center">{{ movie.name }}</h3>
                           <h6>{{ movie.description|truncatewords:34 }}</h6>
-                          <p>Год выпуска: {{ movie.release_date }}</p>
+                          <p>{% trans 'Год выпуска:' %} {{ movie.release_date }}</p>
                           {% for genre in movie.genre.all %}
-                          <p>Жанр: {{ genre.name }}</p>
+                          <p>{% trans 'Жанр:' %} {{ genre.name }}</p>
                           {% endfor %}
                           <div class="text-center">
                               <button type="button" class="btn btn-warning">
-                                <a href="{% url 'main:detail' movie.id %}">Смотреть онлайн</a>
+                                <a href="{% url 'main:detail' movie.id %}">{% trans 'Смотреть онлайн' %}</a>
                               </button>
                           </div>
                       </div>

@@ -1,20 +1,20 @@
 from django.contrib import admin
 from .models import *
-
+from modeltranslation.admin import TranslationAdmin
 
 @admin.register(Category)
-class CategoryAdmin(admin.ModelAdmin):
+class CategoryAdmin(TranslationAdmin):
     list_display = ('name', 'url')
     list_display_links = ('name', )
 
 
 @admin.register(Genre)
-class GenreAdmin(admin.ModelAdmin):
+class GenreAdmin(TranslationAdmin):
     list_display =('name', 'url')
 
 
 @admin.register(Movie)
-class MovieAdmin(admin.ModelAdmin):
+class MovieAdmin(TranslationAdmin):
     list_display = ('name', 'release_date', )
 
 

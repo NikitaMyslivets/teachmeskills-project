@@ -12,6 +12,7 @@ pillow = "*"
 django-crispy-forms = "*"
 django-recaptcha3 = "*"
 django-filter = "*"
+django-modeltranslation = "*"
 
 [requires]
 python_version = "3.8"
