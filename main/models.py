@@ -38,7 +38,7 @@ class Movie(models.Model):
     actor = models.CharField(max_length=300)
     director = models.CharField(max_length=300)
     genre = models.ManyToManyField(Genre, verbose_name='Жанр')
-    release_date = models.PositiveSmallIntegerField(default=0)
+    release_date = models.DateField()
     average_rating = models.FloatField(default=0)
     time = models.CharField(max_length=50)
     image = models.URLField(default=None, null=True)

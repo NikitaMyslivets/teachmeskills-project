@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = ')oyk)4hsnx*3m79g31-6617!tzid&rny!h^5w)6x3ct=6n21u='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['teachmeskills.herokuapp.com', 'localhost']
 
@@ -85,8 +85,12 @@ WSGI_APPLICATION = 'teachmeskills.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR / 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd2tu53p52kj3kj',
+        'HOST': 'ec2-52-22-238-188.compute-1.amazonaws.com',
+        'PORT': 5432,
+        'USER': 'zflpfekufnpenh',
+        'PASSWORD': '0f8139623a80ae76f35e5072b7a18fde1778b4484eac8e646de71342dd26c487',
     }
 }
 
