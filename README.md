@@ -1,2 +1,2 @@
-teachmeskills
+teachmeskills-project
 https://teachmeskills.herokuapp.com/
