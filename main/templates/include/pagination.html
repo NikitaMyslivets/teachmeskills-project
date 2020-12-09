@@ -1,5 +1,5 @@
 <div class="text-center">
-      <nav class="mt-2 p-2" style="max-width: 235px; margin: auto;">
+      <nav class="mt-2 p-2" style="max-width: 180px; margin: auto;">
         <ul class="pagination pg-teal">
           <li class="page-item" {% if not prev_page_url %} disabled {% endif %}>
             <a class="page-link" href="{{ prev_page_url }}" aria-label="Previous">
@@ -12,7 +12,7 @@
           {% for n in movies.paginator.page_range %}
             {% if movies.number == n %}
               <li class="page-item active"><a class="page-link" href="?page={{ n }}">{{ n }}</a></li>
-            {% elif n > movies.number|add:-2 and n < movies.number|add:2 %}
+            {% elif n > movies.number|add:-3 and n < movies.number|add:3 %}
               <li class="page-item"><a class="page-link" href="?page={{ n }}">{{ n }}</a></li>
             {% endif %}
           {% endfor %}

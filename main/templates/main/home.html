@@ -32,7 +32,7 @@
                 <div class="card">
                   <div class="row">
 
-                    <div class="col-md-6" style="">
+                    <div class="col-md-6">
                       <div class="card-body">
                         <img src="{{ movie.image }}" alt="" class="img-fluid" width="100%">
                       </div>
@@ -40,7 +40,7 @@
                     <div class="col-md-6">
                       <div class="card-body">
                         <h3 class="text-center">{{ movie.name }}</h3>
-                          <h6>{{ movie.description|truncatewords:34 }}</h6>
+                          <h6>{{ movie.description|truncatewords:30 }}</h6>
                           <p>{% trans 'Год выпуска:' %} {{ movie.release_date }}</p>
                           {% for genre in movie.genre.all %}
                           <p>{% trans 'Жанр:' %} {{ genre.name }}</p>
@@ -64,9 +64,10 @@
       <!-- /.col-lg-9 -->
     </div>
     <!-- /.row -->
+     <br>
  </div>
 
   {% include 'include/pagination.html' %}
-
+<br>
 {% endblock content %}
 

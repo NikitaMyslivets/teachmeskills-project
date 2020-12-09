@@ -21,7 +21,7 @@ def index(request):
 
         '''pagination'''
 
-    paginator = Paginator(allMovies, 3)
+    paginator = Paginator(allMovies, 4)
     page_number = request.GET.get('page', 1)
     page = paginator.get_page(page_number)
 
